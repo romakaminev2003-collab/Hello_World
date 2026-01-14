@@ -1,0 +1,56 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOjBrr8aspTqylvPVw71u0D",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/romakaminev2003-collab/Hello_World/blob/main/YoYo\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "DMuBKnM93AJp"
+      },
+      "outputs": [],
+      "source": [
+        "import string as st\n",
+        "\n",
+        "def edit_file(filename):\n",
+        "  with open (filename, 'r', encoding='utf8') as fn:\n",
+        "    l1 = fn.readlines()\n",
+        "    l1 = [l.strip() for l in l1]\n",
+        "  l_punct = list (st.punctuation)\n",
+        "  for i in range (len(l1)):\n",
+        "    for j in l_punct:\n",
+        "      l1[i] = l1[i].replace(j, '')\n",
+        "  with open(filename.replace('.txt', '') + '_edited.txt', 'w', encoding='utf8') as f:\n",
+        "    for l in range (len(l1)):\n",
+        "      if l == len(l1)-1:\n",
+        "        f.write(l1[l])\n",
+        "      else:\n",
+        "        f.write(l1[l]+'\\n')"
+      ]
+    }
+  ]
+}
