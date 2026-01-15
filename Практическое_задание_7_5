@@ -1,0 +1,72 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMNRy1mqukuNyjxylvWVM/+",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/romakaminev2003-collab/Hello_World/blob/main/%D0%9F%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B5_%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5_7_5\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 70,
+      "metadata": {
+        "id": "E5f2_syLqR6t"
+      },
+      "outputs": [],
+      "source": [
+        "import random\n",
+        "\n",
+        "def check_input (array):\n",
+        "    if len (array) == 2 and (all([isinstance(item, int) for item in array])):\n",
+        "        if array[0] < array[1]:\n",
+        "            return True\n",
+        "        else:\n",
+        "            return False\n",
+        "\n",
+        "\n",
+        "def get_ladder (valid_array):\n",
+        "    N = random.randrange (valid_array[0], valid_array[1])\n",
+        "    output_array = []\n",
+        "    for i in range (valid_array[1], N - 1, -1):\n",
+        "        output_array.append (i*'*')\n",
+        "    for i in range (valid_array[0], N + 1):\n",
+        "        output_array.append (i*'*')\n",
+        "    return output_array\n",
+        "\n",
+        "\n",
+        "def main (lists_list):\n",
+        "    c = 0\n",
+        "    for lst in lists_list:\n",
+        "        if check_input (lst):\n",
+        "            c += 1\n",
+        "            out_array = get_ladder (lst)\n",
+        "            break\n",
+        "    if c != 0:\n",
+        "        for output in out_array:\n",
+        "            print (output)\n",
+        "    else:\n",
+        "        print ('No valid array was found!')"
+      ]
+    }
+  ]
+}
